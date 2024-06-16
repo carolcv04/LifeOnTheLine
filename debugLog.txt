@@ -1,0 +1,99 @@
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: Start
+    Current type: Event
+    Current message: Start
+    Choice: 
+    Next story point: EventBaby
+    Next type: Event
+    Next story message: You are a baby.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: EventBaby
+    Current type: Event
+    Current message: You are a baby.
+    Choice: 
+    Next story point: EventChild
+    Next type: Event
+    Next story message: You become a child.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: EventChild
+    Current type: Event
+    Current message: You become a child.
+    Choice: 
+    Next story point: ChoiceStudious
+    Next type: Choice
+    Next story message: You become a teenager. Are you studious?
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: ChoiceStudious
+    Current type: Choice
+    Current message: You become a teenager. Are you studious?
+    Choice: No
+    Next story point: REventNotStudious
+    Next type: Event
+    Next story message: You drop out of school.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: REventNotStudious
+    Current type: Event
+    Current message: You drop out of school.
+    Choice: 
+    Next story point: RChoiceDropout
+    Next type: Choice
+    Next story message: Do you:
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: RChoiceDropout
+    Current type: Choice
+    Current message: Do you:
+    Choice: Become a farmer
+    Next story point: REventFarmer
+    Next type: Event
+    Next story message: Great harvest. You grew 11 carrots and also dug up some gold by mistake in the process.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: REventFarmer
+    Current type: Event
+    Current message: Great harvest. You grew 11 carrots and also dug up some gold by mistake in the process.
+    Choice: 
+    Next story point: ChoiceGold
+    Next type: Choice
+    Next story message: Do you:
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: ChoiceGold
+    Current type: Choice
+    Current message: Do you:
+    Choice: You continue with your farm and never tell anyone that you found the gold.
+    Next story point: EventLeprechaun
+    Next type: Event
+    Next story message: One day this leprechaun finds you and steals the gold from you.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: EventLeprechaun
+    Current type: Event
+    Current message: One day this leprechaun finds you and steals the gold from you.
+    Choice: 
+    Next story point: ChoiceLeprechaunStealer
+    Next type: Choice
+    Next story message: Do you:
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: ChoiceLeprechaunStealer
+    Current type: Choice
+    Current message: Do you:
+    Choice: You forget about the gold and continue with your farm.
+    Next story point: EventNoKillLeprechaun
+    Next type: Event
+    Next story message: You live a fulfilling life with just you and your farm. You end up passing away after working so hard on one of your carrot harvests.
+MOVING TO NEXT POINT
+Getting next story point
+    Current story point: EventNoKillLeprechaun
+    Current type: Event
+    Current message: You live a fulfilling life with just you and your farm. You end up passing away after working so hard on one of your carrot harvests.
+    Choice: 
+    Next story point: EndingGood
+    Next type: Ending
+    Next story message: You win!

@@ -1,0 +1,943 @@
+------------------------------------
+Start:
+  Type: Event
+  Message: Start
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventBaby
+EventBaby:
+  Type: Event
+  Message: You are a baby.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventChild
+ChoiceGender:
+  Type: Choice
+  Message: Choose your gender.
+  Choice count: 3
+  Choice text: Male
+      Choice destination: EventChild
+  Choice text: Female
+      Choice destination: EventChild
+  Choice text: Indifferent (I can be any hoe)
+      Choice destination: EventChild
+EventChild:
+  Type: Event
+  Message: You become a child.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceStudious
+ChoiceStudious:
+  Type: Choice
+  Message: You become a teenager. Are you studious?
+  Choice count: 2
+  Choice text: Very
+      Choice destination: EventStayInSchool
+  Choice text: No
+      Choice destination: REventNotStudious
+REventNotStudious:
+  Type: Event
+  Message: You drop out of school.
+  Choice count: 1
+  Choice text: You drop out of school.
+      Choice destination: RChoiceDropout
+EventStayInSchool:
+  Type: Event
+  Message: You keep getting good grades.
+  Choice count: 1
+  Choice text: You keep getting good grades.
+      Choice destination: EventGraduate
+EventGraduate:
+  Type: Event
+  Message: You graduate from school.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventAdult
+RChoiceDropout:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Become a farmer
+      Choice destination: REventFarmer
+  Choice text: Become an actor
+      Choice destination: EventActor
+EventAdult:
+  Type: Event
+  Message: You become an adult.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceCollege
+ChoiceCollege:
+  Type: Choice
+  Message: Do you start working or go to college?
+  Choice count: 2
+  Choice text: Work
+      Choice destination: RChoiceWork
+  Choice text: College
+      Choice destination: REventForCollege
+RChoiceWork:
+  Type: Choice
+  Message: You get a job offer from your rich uncle.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventUncle
+EventRudebega:
+  Type: Event
+  Message: He tells you to deliver a bundle of rudebega. Do you say yes or no?
+  Choice count: 2
+  Choice text: Yes
+      Choice destination: EventYesRudebega
+  Choice text: No
+      Choice destination: REventNoRudebega
+REventUncle:
+  Type: Event
+  Message: He makes you his understudy for theater performance.
+  Choice count: 1
+  Choice text: He makes you his understudy for theater performance.
+      Choice destination: EventTheater
+ChoiceStrip:
+  Type: Choice
+  Message: Do you strip or not?
+  Choice count: 2
+  Choice text: Sure
+      Choice destination: EventStrip
+  Choice text: No
+      Choice destination: EventNoStrip
+EventStrip:
+  Type: Event
+  Message: You strip for him and he decides he doesn’t like what he sees. You run away crying and head for a bus stop.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventNoStrip:
+  Type: Event
+  Message: Your uncle gets super mad and you run away to a bus stop.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventTheater:
+  Type: Event
+  Message: You finally realize your passion for the arts and performing in front of hundreds of people. You continue this path of theater for your career.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventYesRudebega:
+  Type: Event
+  Message: The rudebega is for his neighbors dog. He eats it and licks your hand. You had a fun time but decide to quit and go back home.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+REventNoRudebega:
+  Type: Event
+  Message: He's mad but he understands. You decide to find a new job and go back home.
+  Choice count: 1
+  Choice text: He's mad but he understands. You decide to find a new job and go back home.
+      Choice destination: EventMeetSomeone
+REventForCollege:
+  Type: Event
+  Message: You do well in school and get a degree.
+  Choice count: 1
+  Choice text: You do well in school and get a degree.
+      Choice destination: ChoiceCorporateOrBusiness
+ChoiceCorporateOrBusiness:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Find a corporate job
+      Choice destination: ChoiceCorporateJob
+  Choice text: Work for your family's business
+      Choice destination: REventFamilyBusiness
+ChoiceCorporateJob:
+  Type: Choice
+  Message: Are you:
+  Choice count: 4
+  Choice text: A stock broker
+      Choice destination: EventStockBroker
+  Choice text: Computer scientist
+      Choice destination: RChoiceComputerScientist
+  Choice text: Yacht sales man
+      Choice destination: EventCoworkerStealsSale
+  Choice text: State farm agent
+      Choice destination: EventStateFarmAgent
+EventStockBroker:
+  Type: Event
+  Message: Your boss asks you to choose whether or not the company should buy or sell their CompaneeCo. stock or not (currently evaluated at 30k total).
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceStock
+ChoiceStock:
+  Type: Choice
+  Message: Do you:
+  Choice count: 3
+  Choice text: Sell it all
+      Choice destination: EventSellAllStock
+  Choice text: Buy 50% more
+      Choice destination: EventBuyStock
+  Choice text: Sell 10%
+      Choice destination: EventSell10%Stock
+EventSellAllStock:
+  Type: Event
+  Message: The stock goes down 99%. You save your boss 10k and he gives you a hug. You figure that you can’t get any higher than that and quit while you’re ahead. You become a nanny.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventBuyStock:
+  Type: Event
+  Message: The stock goes down 99%. You lost 15k.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventResultBuyStock
+EventSell10%Stock:
+  Type: Event
+  Message: The stock goes down 99%. You saved your boss 1k but 9k goes down the drain. Your boss fires you. You are desperate and you think about stealing some bread.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceStealBread
+REventResultBuyStock:
+  Type: Event
+  Message: Your boss doesn't fire you. But now you have to decide between a blue or yellow cake to get for your coworker Deborah’s birthday.
+  Choice count: 1
+  Choice text: Your boss doesn't fire you. But now you have to decide between a blue or yellow cake to get for your coworker Deborah’s birthday.
+      Choice destination: ChoiceDeborahCake
+ChoiceDeborahCake:
+  Type: Choice
+  Message: You choose:
+  Choice count: 2
+  Choice text: Blue
+      Choice destination: EventBlueCake
+  Choice text: Yellow
+      Choice destination: EventYellowCake
+EventBlueCake:
+  Type: Event
+  Message: She loves it. You become the most popular person in the office. The previous most popular person Harry is upset and has a vendetta against you now.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventHarry
+EventYellowCake:
+  Type: Event
+  Message: Deborah is allergic to yellow. You flock to the bus stop in a desperate attemp to escape the embarrassment (everyone in the office looked at you for a longer amount of time than usual when you’d pass them in the office).
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+REventHarry:
+  Type: Event
+  Message: He trips you in front of everyone at your big meeting. You’re so embarrassed that you run away.
+  Choice count: 1
+  Choice text: He trips you in front of everyone at your big meeting. You’re so embarrassed that you run away.
+      Choice destination: EventMeetSomeone
+ChoiceStealBread:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Steal it.
+      Choice destination: EventStealBread
+  Choice text: Don't steal it.
+      Choice destination: EventNoStealBread
+EventStealBread:
+  Type: Event
+  Message: A cop finds you with the stolen bread and you go to jail. You decide to change your life after you get out of jail. 
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventNoStealBread:
+  Type: Event
+  Message: You are a good citizen. Someone then sees you on the street and they think you have what it takes to be famous. You accept their offer and now you're famous!
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+RChoiceComputerScientist:
+  Type: Choice
+  Message: You want to get ahead and fast. Do you: 
+  Choice count: 1
+  Choice text: Study every night.
+      Choice destination: EventStudy
+EventSuckUpToBoss:
+  Type: Event
+  Message: He catches on and you linger at your job. The days are long and endless. One day you quit and hitch the bus.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventStudy:
+  Type: Event
+  Message: You move up the ranks! One day your boss gives you that promotion and you now manage a team of people. There's a fire in the office one day! One of your team members says they suspect it's Corey.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceApproachCorey
+EventStealCode:
+  Type: Event
+  Message: You finish projects for a long time with this company. One day your boss asks you to help him launder money.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceLaunderMoney
+ChoiceApproachCorey:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Approach him yourself delicately. The situation requires precision...
+      Choice destination: REventDelicateCorey
+  Choice text: Appraoch him violentally! You’re sure it’s him who did it and setting fire to an office is a big no no.
+      Choice destination: EventViolentCorey
+EventViolentCorey:
+  Type: Event
+  Message: You tell your boss that he threatened to kill you. The boss also later finds out that Corey did set the office on fire. Corey gets fired. You get a promotion.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+REventDelicateCorey:
+  Type: Event
+  Message: When he hears the empathy in your approach Corey admits he set the place ablaze and quietly resigns to deal with his guilt.
+  Choice count: 1
+  Choice text: When he hears the empathy in your approach Corey admits he set the place ablaze and quietly resigns to deal with his guilt.
+      Choice destination: EventMeetSomeone
+ChoiceBelieveCorey:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Tell him you believe him.
+      Choice destination: EventBelieveCorey
+  Choice text: Tell him you know he's lying.
+      Choice destination: EventDoNotBelieveCorey
+EventBelieveCorey:
+  Type: Event
+  Message: You go about your life hiding his secret and Corey is never found to be the firer starterer.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventDoNotBelieveCorey:
+  Type: Event
+  Message: He gets upset at you and tells your boss you broke the NDA of the game that got leaked recently (you didn’t this was a lie).
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceContinueWorkingComputerScientist
+ChoiceContinueWorkingComputerScientist:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Keep working here.
+      Choice destination: EventKeepWorkingComputerScientist
+  Choice text: Quit.
+      Choice destination: EventQuitComputerScientist
+EventQuitComputerScientist:
+  Type: Event
+  Message: You lose your passion for computer science and become a hotdog cart seller. You keep selling hot dogs until the day you die.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingGood
+EventKeepWorkingComputerScientist:
+  Type: Event
+  Message: You keep your head held high and keep working their for the next 20 years. Corey bullies you every day.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventCoreyBully
+REventCoreyBully:
+  Type: Event
+  Message: No one ever finds out the truth...
+  Choice count: 1
+  Choice text: No one ever finds out the truth...
+      Choice destination: EventMeetSomeone
+ChoiceLaunderMoney:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Say yes.
+      Choice destination: EventLaunderMoney
+  Choice text: Say no.
+      Choice destination: EventNoLaunderMoney
+EventLaunderMoney:
+  Type: Event
+  Message: For 7 years you do your boss’s bidding. Nothing ever comes of it. You later quit that job and work for a company that treats you well.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventNoLaunderMoney:
+  Type: Event
+  Message: Your boss asks someone else and you see who it is. You keep tabs on them for the next 4 months.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventKeepTabsOnBossMinion
+REventKeepTabsOnBossMinion:
+  Type: Event
+  Message: You forget all about it after the 5th month. You’re doing some christmas shopping one afternoon specifically looking for a gift for your mom.
+  Choice count: 1
+  Choice text: You forget all about it after the 5th month. You’re doing some christmas shopping one afternoon specifically looking for a gift for your mom.
+      Choice destination: ChoiceMomGift
+REventDirtySpoon:
+  Type: Event
+  Message: They report you to the boss for your poor cleanliness at work.
+  Choice count: 1
+  Choice text: They report you to the boss for your poor cleanliness at work.
+      Choice destination: EventReportDirtySpoon
+EventReportDirtySpoon:
+  Type: Event
+  Message: Your boss fires you because of the spoon. you are devastated and can’t find another job. You lose your passion for computer science and become a hot dog cart seller. You keep selling hot dogs until the day you die.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+ChoicePhysicalFightDirtySpoon:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You tell your boss that the guy started it.
+      Choice destination: EventFightByGuy
+  Choice text: You accept that the fight happened.
+      Choice destination: EventAcceptFight
+EventFightByGuy:
+  Type: Event
+  Message: Your boss fires you. you lose your passion for computer science and become a hot dog cart seller. You keep selling hot dogs until the day you die. 
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventAcceptFight:
+  Type: Event
+  Message: Your boss puts you in a storage room as a punishment. You continue to work for this company because they threatened to spill the spoon incident to whoever you tried to work for next. You sadly work for this company until the day you die.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+ChoiceCombEmails:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You punch him in the face when you see him and you guys get into a physical brawl.
+      Choice destination: EventPhysicalFightAndPoliceStation
+  Choice text: You are pissed but you don’t want to admit that you went through their emails. You take the hit and accept the flat tire.
+      Choice destination: EventExposeBossMinion
+ChoiceMomGift:
+  Type: Choice
+  Message: Do you get a:
+  Choice count: 4
+  Choice text: Teddy bear
+      Choice destination: EventTeddyBear
+  Choice text: Monster truck
+      Choice destination: EventMonsterTruck
+  Choice text: Puppy
+      Choice destination: EventPuppy
+  Choice text: Beetle
+      Choice destination: EventBeetle
+EventPhysicalFightAndPoliceStation:
+  Type: Event
+  Message: You guys go to the police station. They fine both of you guys. You are annoyed that you got fined. You end up getting fired because the boss thought that you were too suspicious. You lose your passion for computer science and become a hotdog cart seller. You keep selling hot dogs until the day you die.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventExposeBossMinion:
+  Type: Event
+  Message: You later expose the guy for working under the boss as his minion. You leave the company before they could fire you. You go work for another company and become the CEO.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventTeddyBear:
+  Type: Event
+  Message: She likes it but she thinks it’s childish so she throws it away. You are sad but eventually you forgive her.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventBossMinionOnRoad
+EventMonsterTruck:
+  Type: Event
+  Message: She likes it but doesn’t love it. The upholstery smells bad to her.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceMonsterTruck
+EventPuppy:
+  Type: Event
+  Message: She loves him and names him Guppy.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventBossMinionOnRoad
+EventBeetle:
+  Type: Event
+  Message: She loves the beetle! But one day she accidentally eats the beetle because it was in her beans.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventBossMinionOnRoad
+ChoiceMonsterTruck:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Return it.
+      Choice destination: EventBossMinionOnRoad
+  Choice text: Take it for yourself.
+      Choice destination: EventBossMinionOnRoad
+EventBossMinionOnRoad:
+  Type: Event
+  Message: As you’re driving it down the road you see someone in your rearview mirror. It's your boss’s minion! They have a gun and are trying to kill you.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceBossMinionKill
+ChoiceBossMinionKill:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You bring out your own gun from your glove compartment and start shooting back at them.
+      Choice destination: EventShot
+  Choice text: You duck and try to drive away fast.
+      Choice destination: EventGetAway
+EventShot:
+  Type: Event
+  Message: You end up getting shot and you die.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventGetAway:
+  Type: Event
+  Message: You end up getting away from them. You call the police and they find your boss’s minion and take him to prison. You quit your job at that company and work for another company that treats you well. Everything is back to normal.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventCoworkerStealsSale:
+  Type: Event
+  Message: Your coworker steals this $1 million yacht sale from you and claims it as their own in front of your boss.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceCoworkerStealsSale
+ChoiceCoworkerStealsSale:
+  Type: Choice
+  Message: Do you:
+  Choice count: 3
+  Choice text: Kill your coworker.
+      Choice destination: EventKillCoworker
+  Choice text: Find evidence that the sale was yours.
+      Choice destination: EventSaleEvidence
+  Choice text: Let them have it cause their sales have been sucking recently.
+      Choice destination: EventCoworkerHaveSale
+EventKillCoworker:
+  Type: Event
+  Message: You break into their home and drug their tea when they are in the shower. They pass away after drinking the drugged tea. You later try to claim that the sale was yours but then one of your other coworkers finds out that you killed that one coworker. You go to prison for murder and end up getting beaten to death.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventSaleEvidence:
+  Type: Event
+  Message: Your boss tells you that they are sorry for not giving you the credit and you end up getting a reward. Your coworker is fired for lying.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventCEOOrSalesman
+EventCoworkerHaveSale:
+  Type: Event
+  Message: Let them have it cause their sales have been sucking recently.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventSuckySales
+REventCEOOrSalesman:
+  Type: Event
+  Message: You become one of the best salesmen in your company.
+  Choice count: 1
+  Choice text: You become one of the best salesmen in your company.
+      Choice destination: EventMeetSomeone
+REventSuckySales:
+  Type: Event
+  Message: You start selling a bunch of yachts all of a sudden and you become one of the top salesmen in the company.
+  Choice count: 1
+  Choice text: You start selling a bunch of yachts all of a sudden and you become one of the top salesmen in the company.
+      Choice destination: EventMeetSomeone
+ChoiceOldOrRivalCompany:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You go back to your old company.
+      Choice destination: EventMeetSomeone
+  Choice text: You stay at the rival company.
+      Choice destination: EventMeetSomeone
+EventStateFarmAgent:
+  Type: Event
+  Message: You help with a case about a UFO allegedly causing damage to a client's roof.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceUFO
+ChoiceUFO:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You call them crazy and they get pissed at you. They sue you.
+      Choice destination: REventLawsuit
+  Choice text: You tell that a UFO did cause the damage and you get them insurance for it. The client calls you their hero. You live on with your merry life as a state farm agent.
+      Choice destination: EventMeetSomeone
+REventLawsuit:
+  Type: Event
+  Message: You go through with the law suit and end up winning. State farm fires you but you have so much bank from the law suit that you buy a mansion. You end up losing all your money after someone robs you. You become homeless.
+  Choice count: 1
+  Choice text: You go through with the law suit and end up winning. State farm fires you but you have so much bank from the law suit that you buy a mansion. You end up losing all your money after someone robs you. You become homeless.
+      Choice destination: EndingBad
+REventFamilyBusiness:
+  Type: Event
+  Message: You work at your family’s pharmacy.
+  Choice count: 1
+  Choice text: You work at your family’s pharmacy.
+      Choice destination: EventPharmacy
+EventAutoShop:
+  Type: Event
+  Message: The auto shop catches on fire. Your family has no money.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceFireAutoShop
+ChoiceFireAutoShop:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Dip and become a Taco Bell worker. Every man for themselves!
+      Choice destination: EventMeetSomeone
+  Choice text: Take out a loan to make it work.
+      Choice destination: EventLoanAutoShop
+EventLoanAutoShop:
+  Type: Event
+  Message: You get the auto shop to be back on track and your family pays off the loan after 5 years. You continue to work for your family’s business and you are pretty happy.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventDoggyDayCare:
+  Type: Event
+  Message: Diana Diddledig (the IT girl of the doggy daycare sphere) comes in one day to YOUR daycare!
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventDoggyDayCareCeleb
+REventDoggyDayCareCeleb:
+  Type: Event
+  Message: She says your daycare is unethical.
+  Choice count: 1
+  Choice text: She says your daycare is unethical.
+      Choice destination: EventQuitDoggyDayCare
+EventQuitDoggyDayCare:
+  Type: Event
+  Message: You quit the business and become a millionaire.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventPharmacy:
+  Type: Event
+  Message: You see some medicinal mushrooms one day. What should you do with them?
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventMedicialMushrooms
+REventMedicialMushrooms:
+  Type: Event
+  Message: Do you:
+  Choice count: 1
+  Choice text: Do you:
+      Choice destination: EventEatMushrooms
+EventSwipeMushrooms:
+  Type: Event
+  Message: The police find them in your pocket the next day when a cop walks his dog past your house. You dash to the bus stop and get away!
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventNoMushrooms:
+  Type: Event
+  Message: You get bored of the pharmacy. You've never taken risks. You become a librarian. You decide to take a chance and catch a bus ride into the unknown.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventEatMushrooms:
+  Type: Event
+  Message: Nothing happens. They were medicinal but that doesn’t mean they were acid.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceWorkPharmacy
+ChoiceWorkPharmacy:
+  Type: Choice
+  Message: Do you:
+  Choice count: 3
+  Choice text: Quite and get a corporate job.
+      Choice destination: ChoiceCorporateJob
+  Choice text: Keep working at the pharmacy.
+      Choice destination: EventPharmacyDeath
+  Choice text: Work for a doggy day care in town.
+      Choice destination: EventPharmacyToDoggy
+EventPharmacyDeath:
+  Type: Event
+  Message: Someone comes in and mugs you. The blunt force trauma kills you.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventPharmacyToDoggy:
+  Type: Event
+  Message: You are happy with your job and it's time to commute back home so you go to a bus stop.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventActor:
+  Type: Event
+  Message: You go to an audition. After one rejection you now let the fate of the bus decide your next life decision.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventGang:
+  Type: Event
+  Message: You and your gang ride around town selling doritos to passersby.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventDoritos
+REventDoritos:
+  Type: Event
+  Message: Someone steals one of your doritos right out from under you. Gang engages in chase. When you catch up to them they impale you with the dorito and you die.
+  Choice count: 1
+  Choice text: Someone steals one of your doritos right out from under you. Gang engages in chase. When you catch up to them they impale you with the dorito and you die.
+      Choice destination: EndingBad
+REventFarmer:
+  Type: Event
+  Message: Great harvest. You grew 11 carrots and also dug up some gold by mistake in the process.
+  Choice count: 1
+  Choice text: Great harvest. You grew 11 carrots and also dug up some gold by mistake in the process.
+      Choice destination: ChoiceGold
+REventBestCarrotFarmer:
+  Type: Event
+  Message: Do you:
+  Choice count: 1
+  Choice text: Do you:
+      Choice destination: EventVibeCarrotFarmer
+EventVibeCarrotFarmer:
+  Type: Event
+  Message: You get a house in the middle of nowhere and you vibe until you pass away of old age.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingGood
+ChoiceGold:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You sell your farm and use your profit and the gold you found to buy a mansion in NYC. You are now a millonaire.
+      Choice destination: EventMeetSomeone
+  Choice text: You continue with your farm and never tell anyone that you found the gold.
+      Choice destination: EventLeprechaun
+EventLeprechaun:
+  Type: Event
+  Message: One day this leprechaun finds you and steals the gold from you.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceLeprechaunStealer
+ChoiceLeprechaunStealer:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: You hunt down the leprechaun and kill him.
+      Choice destination: EventKillLeprechaun
+  Choice text: You forget about the gold and continue with your farm.
+      Choice destination: EventNoKillLeprechaun
+EventKillLeprechaun:
+  Type: Event
+  Message: Karma hits you and you end up falling in a hole and breaking your neck.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventNoKillLeprechaun:
+  Type: Event
+  Message: You live a fulfilling life with just you and your farm. You end up passing away after working so hard on one of your carrot harvests.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingGood
+REventGrandma:
+  Type: Event
+  Message: G-ma aint too happy with your behaviour lately scout. She sends you to boarding school.
+  Choice count: 1
+  Choice text: G-ma aint too happy with your behaviour lately scout. She sends you to boarding school.
+      Choice destination: ChoiceBully
+ChoiceBully:
+  Type: Choice
+  Message: A bully approaches you and asks to befriend you. Do you:
+  Choice count: 2
+  Choice text: Spank him (no).
+      Choice destination: EventKickedOutBoardingSchool
+  Choice text: Sure. You shake hands.
+      Choice destination: ChoiceBullySpillsJuice
+EventKickedOutBoardingSchool:
+  Type: Event
+  Message: You get kicked out of boarding school and get a part-time job at juice place. G-ma sends you on a bus stop to “who cares where” (her words).
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+ChoiceBullySpillsJuice:
+  Type: Choice
+  Message: You guys get along for a while until one day he spills some juice on your shirt. Do you:
+  Choice count: 2
+  Choice text: Punch him.
+      Choice destination: EventKickedOutBoardingSchool
+  Choice text: Forgive him and hug.
+      Choice destination: EventSpillsJuiceAgain
+EventSpillsJuiceAgain:
+  Type: Event
+  Message: He spills juice on your shirt again. This was the work shirt for your job at a cat cafe. You get so sad and angry you run away to the bus stop.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EventMeetSomeone
+EventMeetSomeone:
+  Type: Event
+  Message: You may or may not meet someone at a bus stop.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: ChoiceWhoDoYouMeet
+ChoiceWhoDoYouMeet:
+  Type: Choice
+  Message: It is: 
+  Choice count: 4
+  Choice text: Amanda
+      Choice destination: EventAmanda
+  Choice text: I wanna be single.
+      Choice destination: ChoiceSingle
+  Choice text: Sam
+      Choice destination: REventSam
+  Choice text: An old man with a lot of money
+      Choice destination: REventOldMan
+EventAmanda:
+  Type: Event
+  Message: You immediately fall in love. You married them after 6 months of dating. 
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventLoveAmanda
+REventLoveAmanda:
+  Type: Event
+  Message: This is the person you fell in the love quickly and eventually you fell out of love quickly as well. You sway and end up sleeping with another person.
+  Choice count: 1
+  Choice text: This is the person you fell in the love quickly and eventually you fell out of love quickly as well. You sway and end up sleeping with another person.
+      Choice destination: ChoiceAmandaBreakUp
+ChoiceAmandaBreakUp:
+  Type: Choice
+  Message: You tell Amanda that you cheated. Amanda breaks up with you.
+  Choice count: 2
+  Choice text: 
+      Choice destination: EventFallInLove
+  Choice text: 
+      Choice destination: EventFallInLove
+EventFallInLove:
+  Type: Event
+  Message: You find another person and fall in love. You have a child. Your child later stabs you to death.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+ChoiceChildren:
+  Type: Choice
+  Message: You have:
+  Choice count: 3
+  Choice text: No children
+      Choice destination: EventNoChildren
+  Choice text: 2 children
+      Choice destination: EventTwoChildren
+  Choice text: 7 children
+      Choice destination: EventSevenChildren
+EventNoChildren:
+  Type: Event
+  Message: You live a slay life making so much money. Amanda passes away in a car accident and it pains you so much that you have a heart attack.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+EventTwoChildren:
+  Type: Event
+  Message: You and amanda have stable jobs. You guys have free time on the weekends to spend time with your kids. Your kids become successful and you were a slay parent. You retire and live out a peaceful life on the countryside with amanda. You pass away at the beach during sunset.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingGood
+EventSevenChildren:
+  Type: Event
+  Message: You are a slay working parent with a minivan but you and amanda’s income aren’t enough to cover your family of 9. You lose your house and become homeless. You accidentally catch a severe disease with no cure and pass away leaving your children and your partner.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingBad
+ChoiceSingle:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Focus on your career and become successful but lonely.
+      Choice destination: ChoiceCatOrDog
+  Choice text: You no longer have a regular job and become a stripper and make bank.
+      Choice destination: EventNiceHouse
+ChoiceCatOrDog:
+  Type: Choice
+  Message: You live in a nice house with a:
+  Choice count: 2
+  Choice text: Cat
+      Choice destination: EventCat
+  Choice text: Dog
+      Choice destination: EventDog
+EventCat:
+  Type: Event
+  Message: You live with your dear cat and they become your best friend.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventCatAndDog
+EventDog:
+  Type: Event
+  Message: You teach your dog tricks and take them to the beach almost every day.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventCatAndDog
+REventCatAndDog:
+  Type: Event
+  Message: Your cat/dog scratches your eyes out one day and you bleed to death.
+  Choice count: 1
+  Choice text: Your cat/dog scratches your eyes out one day and you bleed to death.
+      Choice destination: EndingBad
+EventNiceHouse:
+  Type: Event
+  Message: You settle down in a nice house.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventStairsOrCarDeath
+REventStairsOrCarDeath:
+  Type: Event
+  Message: You end up falling on your face when you go down the stairs.
+  Choice count: 1
+  Choice text: You end up falling on your face when you go down the stairs.
+      Choice destination: EndingBad
+REventSam:
+  Type: Event
+  Message: You start dating them but they move to Australia.
+  Choice count: 1
+  Choice text: You start dating them but they move to Australia.
+      Choice destination: ChoiceBreakUpOrNahAustralia
+ChoiceBreakUpOrNah:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Break up.
+      Choice destination: EventLiveGoodLife
+  Choice text: Stay together.
+      Choice destination: EventLiveGoodLife
+ChoiceBreakUpOrNahAustralia:
+  Type: Choice
+  Message: Do you:
+  Choice count: 2
+  Choice text: Break up.
+      Choice destination: EventLiveGoodLifeAustralia
+  Choice text: Stay together.
+      Choice destination: EventLiveGoodLifeAustralia
+EventLiveGoodLife:
+  Type: Event
+  Message: You live a good life and you get married one day to someone else.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: EndingGood
+EventLiveGoodLifeAustralia:
+  Type: Event
+  Message: You move to Australia with them. You live a good life and you get married to them.
+  Choice count: 1
+  Choice text: OK
+      Choice destination: REventSamDeathOrNah
+REventSamDeathOrNah:
+  Type: Event
+  Message: Sam passes away randomly. You then die of sadness.
+  Choice count: 1
+  Choice text: Sam passes away randomly. You then die of sadness.
+      Choice destination: EndingBad
+REventOldMan:
+  Type: Event
+  Message: You let him live and he dies of old age after 2 years of being with him. 
+  Choice count: 1
+  Choice text: You let him live and he dies of old age after 2 years of being with him. 
+      Choice destination: ChoiceOldManMoneyDeath
+ChoiceOldManMoneyDeath:
+  Type: Choice
+  Message: You move into a retirement home and your life ends peacefully.
+  Choice count: 2
+  Choice text: 
+      Choice destination: EndingGood
+  Choice text: 
+      Choice destination: EndingGood
+EndingGood:
+  Type: Ending
+  Message: You win!
+  Choice count: 1
+  Choice text: OK
+      Choice destination: 
+EndingBad:
+  Type: Ending
+  Message: You suck!
+  Choice count: 1
+  Choice text: OK
+      Choice destination: 
